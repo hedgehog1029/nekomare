@@ -1,0 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,600);
+
+img.profile {
+	width: 128px;
+	height: 128px;
+	border-radius: 64px;
+}
+
+.header {
+	text-align: center;
+}

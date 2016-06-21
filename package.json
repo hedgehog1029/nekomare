@@ -1,0 +1,28 @@
+{
+  "name": "nekomare",
+  "version": "1.0.0",
+  "description": "A general-purpose discord bot",
+  "main": "index.js",
+  "dependencies": {
+    "emoji-parser": "^0.1.1",
+    "discordie": "^0.6.5",
+    "express": "^4.13.4",
+    "hjson": "^1.8.4",
+    "log4js": "^0.6.36",
+    "marked": "^0.3.5",
+    "moment": "^2.13.0",
+    "object.values": "^1.0.3",
+    "request": "^2.72.0",
+    "string": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "offbeatwitch",
+  "license": "MIT"
+}
