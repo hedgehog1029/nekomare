@@ -25,7 +25,8 @@ var NekoComponent = {
 						m("img.profile", { src: "img/profile.jpg" }),
 						m("h1", "Nekomare"),
 						m("p", "A general-purpose Discord bot."),
-						m("a.button.button-primary", { href: "/discord/join" }, "Get Nekomare")
+						m("a.button.button-primary", { href: "/discord/join" }, "Get Nekomare"),
+						m("a.button.button-primary", { href: "https:\/\/discord.gg/eRe4Uqg", style: "margin-left:10px;" }, "Foam Robot Discord")
 					]),
 					m("div.docs", [
 						m.trust(ctrl.docs())

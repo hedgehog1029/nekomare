@@ -32,26 +32,28 @@ modules.loader.load(config.modules, dispatcher.manager, data);
 bot.Dispatcher.on(discordie.Events.GATEWAY_READY, function(e) {
 	l.info("NekomareBot started. Username: " + bot.User.username);
 
-	request.post("https://bots.discord.pw/api/bots/187533418463100928/stats", {
-		json: true,
-		body: {
-			server_count: bot.Guilds.length
-		},
-		headers: {
-			"Authorization": config.dbots.token
-		}
-	}, function(err, res, body) {
-		if (err) {
-			l.error("There was an error posting data to DiscordBots");
-			return;
-		}
-
-		l.info("DiscordBots entry updated.");
-	})
+	modules.dbots.update(config.modules.dbots, bot)
 });
 
 bot.Dispatcher.on(discordie.Events.MESSAGE_CREATE, function(e) {
 	dispatcher.dispatch(config.dispatcher, bot, e.message);
+});
+
+web.app.get("/api/stats", function(req, res) {
+	res.send({
+		count: {
+			guilds: bot.Guilds.length,
+			users: bot.Users.length,
+			channels: bot.Channels.length
+		},
+		cmds: {
+			total: dispatcher.manager._.processed,
+			last: {
+				time: dispatcher.manager._.lastProcessed,
+				name: dispatcher.manager._.lastProcessedName
+			}
+		}
+	})
 });
 
 bot.connect({ token: (config.bot.devmode ? config.bot.devtoken : config.bot.token) });

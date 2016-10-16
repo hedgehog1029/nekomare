@@ -26,5 +26,6 @@ module.exports = {
 	},
 	"listen": function() {
 		app.listen(1354);
-	}
+	},
+	"app": app
 }
