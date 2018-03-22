@@ -4,12 +4,10 @@ var express = require("express"),
 
 var app = express();
 
-var commands = marked(fs.readFileSync("commands.md", "utf8"));
-
 app.use(express.static(__dirname + "/web"));
 
 app.get("/neko/docs", function(req, res) {
-	res.send(commands);
+	res.sendFile("commands.md", {root: __dirname});
 });
 
 app.get("/discord/join", function(req, res) {
@@ -18,11 +16,7 @@ app.get("/discord/join", function(req, res) {
 
 module.exports = {
 	"reload": function() {
-		fs.readFile("commands.md", "utf8", function(err, contents) {
-			if (err) return;
-
-			commands = marked(contents);
-		});
+		return; // Temporary no-op
 	},
 	"listen": function() {
 		app.listen(1354);
