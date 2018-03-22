@@ -17,8 +17,10 @@ var config = Hjson.parse(fs.readFileSync(__dirname + "/config/config.hjson", "ut
 	sdata = JSON.parse(fs.readFileSync(__dirname + "/data/data.json", "utf8")),
 	bot = new discordie({ autoReconnect: true });
 
-web.listen();
-l.info("Webserver started on ::1354.");
+if (config.web) {
+	web.listen();
+	l.info("Webserver started on ::1354.");
+}
 
 dispatcher.manager._.bot = function() {
 	return bot;
